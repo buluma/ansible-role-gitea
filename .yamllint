@@ -12,8 +12,5 @@ rules:
   truthy: disable
 
 ignore: |
-  /venv/
-  /env/
-  /molecule/
   .tox/
   .cache/

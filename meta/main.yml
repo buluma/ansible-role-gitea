@@ -8,20 +8,17 @@ galaxy_info:
   platforms:
     - name: Debian
       versions:
-        - stretch
-        - buster
+        - all
     - name: Ubuntu
       versions:
-        - xenial
-        - bionic
-        - focal
+        - all
     - name: EL
       versions:
         - "7"
         - "8"
     - name: Fedora
       versions:
-        - "33"
+        - "35"
 
   galaxy_tags:
     - git
@@ -31,3 +28,4 @@ galaxy_info:
     - sourcecontrol
     - selfhosted
     - gitserve
+dependencies: []

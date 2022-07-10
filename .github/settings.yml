@@ -1,0 +1,8 @@
+---
+#
+# Ansible managed
+#
+repository:
+  description: Install and configure Gitea on your systems.
+  homepage: https://buluma.github.io/
+  topics: git, gitea, system, development, sourcecontrol, selfhosted, gitserve, ansible, molecule, tox, playbook, hacktoberfest
