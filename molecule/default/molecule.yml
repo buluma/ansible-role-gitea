@@ -1,43 +1,66 @@
 ---
+#
+# Ansible managed
+#
 dependency:
   name: galaxy
-
-driver:
-  name: docker
-
+  options:
+    role-file: requirements.yml
+    requirements-file: requirements.yml
 lint: |
   set -e
   yamllint .
   ansible-lint
-
+driver:
+  name: docker
 platforms:
-  - name: instance
-    image: geerlingguy/docker-${MOLECULE_DISTRO:-ubuntu1804}-ansible:latest
-    pre_build_image: true
-    command: ${MOLECULE_DOCKER_COMMAND:-""}
+  - name: "gitea-${image:-docker-centos7-ansible}-${tag:-latest}${TOX_ENVNAME}"
+    image: "${namespace:-buluma}/${image:-docker-centos7-ansible}:${tag:-latest}"
+    command: /sbin/init
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
-    privileged: true
-
-
+    privileged: yes
+    pre_build_image: yes
+    tty: true
+    environment:
+      container: docker
 provisioner:
   name: ansible
-  playbooks:
-    prepare: prepare.yml
-    converge: converge.yml
-
+  config_options:
+    defaults:
+      interpreter_python: auto_legacy_silent
+      # callback_whitelist: profile_tasks
+    ssh_connection:
+      pipelining: true
 scenario:
+  create_sequence:
+    - create
+    - prepare
+  check_sequence:
+    - cleanup
+    - destroy
+    - create
+    - prepare
+    - converge
+    - check
+    - destroy
+  converge_sequence:
+    - create
+    - prepare
+    - converge
+  destroy_sequence:
+    - cleanup
+    - destroy
   test_sequence:
     - lint
+    - cleanup
     - destroy
     - syntax
     - create
     - prepare
     - converge
+    - idempotence
+    - side_effect
     - verify
+    - cleanup
     - destroy
-
-verifier:
-  name: testinfra
-  lint:
-    name: flake8
