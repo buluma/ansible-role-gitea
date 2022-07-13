@@ -10,7 +10,7 @@ variables:
 
 molecule:
   tags:
-    - docker-runner
+    - ec2-runner
   stage: build
   allow_failure: true
   script:
