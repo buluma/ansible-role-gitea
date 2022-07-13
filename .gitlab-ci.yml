@@ -10,7 +10,7 @@ variables:
 
 molecule:
   tags:
-    - aws
+    - ec2-shell
   stage: build
   allow_failure: true
   script:
@@ -42,7 +42,7 @@ molecule:
 
 testing:
   tags:
-    - aws
+    - ec2-shell
   stage: test
   needs: []
   script:
