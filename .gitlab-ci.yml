@@ -10,7 +10,8 @@ variables:
 
 molecule:
   tags:
-    - aws-docker-runner
+    # - aws-docker-runner
+    - local
   stage: build
   allow_failure: true
   script:
@@ -42,7 +43,8 @@ molecule:
 
 testing:
   tags:
-    - aws-docker-runner
+    # - aws-docker-runner
+    - local
   stage: test
   needs: []
   script:
