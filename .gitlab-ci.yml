@@ -10,7 +10,7 @@ variables:
 
 molecule:
   tags:
-    - ec2-shell
+    - ec2-docker
   stage: build
   allow_failure: true
   script:
@@ -42,7 +42,7 @@ molecule:
 
 testing:
   tags:
-    - ec2-shell
+    - ec2-docker
   stage: test
   needs: []
   script:
