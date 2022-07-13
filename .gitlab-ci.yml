@@ -10,8 +10,7 @@ variables:
 
 molecule:
   tags:
-    - local
-    - ec2
+    - gitlab-runner
   stage: build
   allow_failure: true
   script:
@@ -43,8 +42,7 @@ molecule:
 
 testing:
   tags:
-    - local
-    - ec2
+    - gitlab-runner
   stage: test
   needs: []
   script:
