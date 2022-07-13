@@ -9,6 +9,8 @@ variables:
   PY_COLORS: 1
 
 molecule:
+  tags:
+    - local
   stage: build
   allow_failure: true
   script:
