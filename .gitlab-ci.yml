@@ -11,6 +11,7 @@ variables:
 molecule:
   tags:
     - local
+    - ec2
   stage: build
   allow_failure: true
   script:
@@ -41,6 +42,9 @@ molecule:
         tag: "35"
 
 testing:
+  tags:
+    - local
+    - ec2
   stage: test
   needs: []
   script:
