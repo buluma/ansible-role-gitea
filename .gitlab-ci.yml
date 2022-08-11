@@ -9,13 +9,6 @@ variables:
   PY_COLORS: 1
 
 molecule:
-  tags:
-    # - aws-docker-runner
-    - local
-    - aws-docker-runner
-    - ec2-docker
-    - ec2-shell
-    - og-docker
   stage: build
   allow_failure: true
   script:
