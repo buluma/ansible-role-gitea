@@ -14,8 +14,8 @@ lint: |
 driver:
   name: docker
 platforms:
-  - name: "gitea-${image:-docker-centos7-ansible}-${tag:-latest}${TOX_ENVNAME}"
-    image: "${namespace:-buluma}/${image:-docker-centos7-ansible}:${tag:-latest}"
+  - name: "giteav2-${image:-fedora}-${tag:-latest}${TOX_ENVNAME}"
+    image: "${namespace:-buluma}/${image:-fedora}:${tag:-latest}"
     command: /sbin/init
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
@@ -29,9 +29,10 @@ provisioner:
   config_options:
     defaults:
       interpreter_python: auto_legacy_silent
-      # callback_whitelist: profile_tasks
     ssh_connection:
       pipelining: true
+verifier:
+  name: ansible
 scenario:
   create_sequence:
     - create
@@ -59,7 +60,7 @@ scenario:
     - create
     - prepare
     - converge
-    # - idempotence
+    - idempotence
     - side_effect
     - verify
     - cleanup

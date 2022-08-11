@@ -1,9 +1,8 @@
 ---
-- name: Converge
+- name: converge
   hosts: all
-  become: true
+  become: yes
+  gather_facts: yes
+
   roles:
-    - ansible-role-gitea
-  vars:
-    gitea_http_domain: localhost
-    gitea_root_url: http://localhost
+    - role: ansible-role-gitea

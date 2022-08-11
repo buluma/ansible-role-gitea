@@ -1,27 +1,8 @@
 ---
-- name: Prepare
+- name: prepare
   hosts: all
-  become: true
-  tasks:
-    - name: install dependencies for gitea (RedHat based systems)
-      yum:
-        name: "{{ redhat_packages }}"
-        state: present
-        update_cache: true
-      when: ansible_os_family == "RedHat"
-    - name: install dependencies for gitea (Debian based systems)
-      apt:
-        name: "{{ debian_packages }}"
-        state: present
-        update_cache: true
-      when: ansible_os_family == "Debian"
+  become: yes
+  gather_facts: no
 
-  vars:
-    debian_packages:
-      - git
-      - curl
-      - xz-utils
-    redhat_packages:
-      - git
-      - curl
-      - xz
+  roles:
+    - role: buluma.bootstrap

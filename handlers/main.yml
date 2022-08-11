@@ -1,17 +1,6 @@
 ---
-- name: "Restart gitea"
-  ansible.builtin.service:
-    name: gitea
-    state: restarted
-  when: ansible_service_mgr == "systemd"
+# handlers file for gitea
 
-- name: "Reload systemd"
+- name: systemctl daemon-reload
   ansible.builtin.systemd:
-    daemon_reload: true
-  when: ansible_service_mgr == "systemd"
-
-- name: "Restart fail2ban"
-  ansible.builtin.service:
-    name: fail2ban
-    state: restarted
-  when: ansible_service_mgr == "systemd"
+    daemon-reload: yes

@@ -2,30 +2,29 @@
 galaxy_info:
   author: buluma
   role_name: gitea
-  description: Install and configure Gitea on your systems.
-  min_ansible_version: "2.10"
+  description: Install and configure gitea on your system.
   license: Apache-2.0
+  company: ShadowNet
+  min_ansible_version: "2.10"
+
   platforms:
+    - name: Amazon
+      versions:
+        - Candidate
     - name: Debian
       versions:
-        - all
-    - name: Ubuntu
-      versions:
-        - all
+        - bullseye
     - name: EL
       versions:
-        - "7"
-        - "8"
+        - all
     - name: Fedora
       versions:
-        - "35"
+        - all
+    - name: opensuse
+      versions:
+        - all
 
   galaxy_tags:
-    - git
     - gitea
-    - system
-    - development
-    - sourcecontrol
-    - selfhosted
-    - gitserve
+
 dependencies: []
