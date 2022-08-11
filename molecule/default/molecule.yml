@@ -14,7 +14,7 @@ lint: |
 driver:
   name: docker
 platforms:
-  - name: "giteav2-${image:-fedora}-${tag:-latest}${TOX_ENVNAME}"
+  - name: "gitea-${image:-fedora}-${tag:-latest}${TOX_ENVNAME}"
     image: "${namespace:-buluma}/${image:-fedora}:${tag:-latest}"
     command: /sbin/init
     volumes:

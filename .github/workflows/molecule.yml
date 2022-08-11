@@ -43,24 +43,24 @@ jobs:
       fail-fast: false
       matrix:
         config:
-          - image: "debian-systemd"
+          - image: "amazonlinux"
             tag: "latest"
           - image: "debian-systemd"
-            tag: "bookworm"
-          - image: "docker-ubuntu-systemd"
             tag: "latest"
-          - image: "docker-ubuntu-systemd"
-            tag: "bionic"
-          - image: "docker-ubuntu-systemd"
-            tag: "focal"
-          - image: "docker-ubuntu-systemd"
-            tag: "jammy"
           - image: "enterpriselinux"
             tag: "7"
+          - image: "enterpriselinux"
+            tag: "8"
           - image: "enterpriselinux"
             tag: "latest"
           - image: "fedora-systemd"
             tag: "35"
+          - image: "fedora-systemd"
+            tag: "34"
+          - image: "fedora-systemd"
+            tag: "latest"
+          - image: "docker-opensuse-systemd"
+            tag: "latest"
     steps:
       - name: checkout
         uses: actions/checkout@v3

@@ -1,10 +1,10 @@
-# [gitea_v2](#gitea_v2)
+# [gitea](#gitea)
 
 Install and configure gitea on your system.
 
 |GitHub|GitLab|Quality|Downloads|Version|Issues|Pull Requests|
 |------|------|-------|---------|-------|------|-------------|
-|[![github](https://github.com/buluma/ansible-role-gitea_v2/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/ansible-role-gitea_v2/actions)|[![gitlab](https://gitlab.com/buluma/ansible-role-gitea_v2/badges/master/pipeline.svg)](https://gitlab.com/buluma/ansible-role-gitea_v2)|[![quality](https://img.shields.io/ansible/quality/)](https://galaxy.ansible.com/buluma/gitea_v2)|[![downloads](https://img.shields.io/ansible/role/d/)](https://galaxy.ansible.com/buluma/gitea_v2)|[![Version](https://img.shields.io/github/release/buluma/ansible-role-gitea_v2.svg)](https://github.com/buluma/ansible-role-gitea_v2/releases/)|[![Issues](https://img.shields.io/github/issues/buluma/ansible-role-gitea_v2.svg)](https://github.com/buluma/ansible-role-gitea_v2/issues/)|[![PullRequests](https://img.shields.io/github/issues-pr-closed-raw/buluma/ansible-role-gitea_v2.svg)](https://github.com/buluma/ansible-role-gitea_v2/pulls/)|
+|[![github](https://github.com/buluma/ansible-role-gitea/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/ansible-role-gitea/actions)|[![gitlab](https://gitlab.com/buluma/ansible-role-gitea/badges/master/pipeline.svg)](https://gitlab.com/buluma/ansible-role-gitea)|[![quality](https://img.shields.io/ansible/quality/59670)](https://galaxy.ansible.com/buluma/gitea)|[![downloads](https://img.shields.io/ansible/role/d/59670)](https://galaxy.ansible.com/buluma/gitea)|[![Version](https://img.shields.io/github/release/buluma/ansible-role-gitea.svg)](https://github.com/buluma/ansible-role-gitea/releases/)|[![Issues](https://img.shields.io/github/issues/buluma/ansible-role-gitea.svg)](https://github.com/buluma/ansible-role-gitea/issues/)|[![PullRequests](https://img.shields.io/github/issues-pr-closed-raw/buluma/ansible-role-gitea.svg)](https://github.com/buluma/ansible-role-gitea/pulls/)|
 
 ## [Example Playbook](#example-playbook)
 
@@ -17,7 +17,7 @@ This example is taken from `molecule/default/converge.yml` and is tested on each
   gather_facts: yes
 
   roles:
-    - role: buluma.gitea_v2
+    - role: buluma.gitea
 ```
 
 The machine needs to be prepared. In CI this is done using `molecule/default/prepare.yml`:
@@ -45,7 +45,7 @@ gitea_version: "1.17.0"
 
 ## [Requirements](#requirements)
 
-- pip packages listed in [requirements.txt](https://github.com/buluma/ansible-role-gitea_v2/blob/main/requirements.txt).
+- pip packages listed in [requirements.txt](https://github.com/buluma/ansible-role-gitea/blob/main/requirements.txt).
 
 ## [Status of used roles](#status-of-requirements)
 
@@ -61,7 +61,7 @@ This role is a part of many compatible roles. Have a look at [the documentation 
 
 Here is an overview of related roles:
 
-![dependencies](https://raw.githubusercontent.com/buluma/ansible-role-gitea_v2/png/requirements.png "Dependencies")
+![dependencies](https://raw.githubusercontent.com/buluma/ansible-role-gitea/png/requirements.png "Dependencies")
 
 ## [Compatibility](#compatibility)
 
@@ -83,11 +83,11 @@ The minimum version of Ansible required is 2.10, tests have been done to:
 
 
 
-If you find issues, please register them in [GitHub](https://github.com/buluma/ansible-role-gitea_v2/issues)
+If you find issues, please register them in [GitHub](https://github.com/buluma/ansible-role-gitea/issues)
 
 ## [Changelog](#changelog)
 
-[Role History](https://github.com/buluma/ansible-role-gitea_v2/blob/master/CHANGELOG.md)
+[Role History](https://github.com/buluma/ansible-role-gitea/blob/master/CHANGELOG.md)
 
 ## [License](#license)
 
