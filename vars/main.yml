@@ -19,5 +19,9 @@ _gitea_dependencies:
     - git
     - gnupg2
     - xz
+  Suse:
+    - git
+    - gnupg2
+    - xz
 
 gitea_dependencies: "{{ _gitea_dependencies[ansible_os_family] }}"
