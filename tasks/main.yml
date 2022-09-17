@@ -1,33 +1,33 @@
 ---
 # tasks file for gitea
 
-- name: include assert.yml
+- name: Include assert.yml
   ansible.builtin.import_tasks: assert.yml
   run_once: yes
   delegate_to: localhost
 
-- name: install requirements
+- name: Install requirements
   ansible.builtin.package:
     name: "{{ gitea_dependencies }}"
     state: present
 
-- name: download gitea
+- name: Download gitea
   ansible.builtin.get_url:
     url: https://dl.gitea.io/gitea/{{ gitea_version }}/gitea-{{ gitea_version }}-linux-{{ gitea_arch }}
     dest: /usr/bin/gitea
     mode: "0755"
 
-- name: install git
+- name: Install git
   ansible.builtin.package:
     name: git
 
-- name: create git user and group
+- name: Create git user and group
   block:
-    - name: create group
+    - name: Create group
       ansible.builtin.group:
         name: git
 
-    - name: create user
+    - name: Create user
       ansible.builtin.user:
         name: git
         group: git
@@ -37,9 +37,9 @@
         system: yes
         password_lock: yes
 
-- name: create directories
+- name: Create directories
   block:
-    - name: git owned
+    - name: Git owned
       ansible.builtin.file:
         path: "{{ item }}"
         owner: git
@@ -52,12 +52,12 @@
         - /var/lib/gitea/data
         - /var/lib/gitea/log
 
-    - name: check if /etc/gitea/app.ini exists
+    - name: Check if /etc/gitea/app.ini exists
       ansible.builtin.stat:
         path: /etc/gitea/app.ini
       register: gitea_app_ini
 
-    - name: root owned before installation
+    - name: Root owned before installation
       ansible.builtin.file:
         path: /etc/gitea
         state: directory
@@ -67,7 +67,7 @@
       when:
         - not gitea_app_ini.stat.exists
 
-    - name: root owned after installation
+    - name: Root owned after installation
       block:
         - name: /etc/gitea after installation
           ansible.builtin.file:
@@ -86,7 +86,7 @@
       when:
         - gitea_app_ini.stat.exists
 
-- name: place service file
+- name: Place service file
   ansible.builtin.copy:
     src: gitea.service
     dest: /etc/systemd/system/gitea.service
@@ -94,12 +94,12 @@
     group: root
     mode: "0644"
   notify:
-    - systemctl daemon-reload
+    - Systemctl daemon-reload
 
-- name: flush handlers
+- name: Flush handlers
   ansible.builtin.meta: flush_handlers
 
-- name: start and enable gitea
+- name: Start and enable gitea
   ansible.builtin.service:
     name: gitea
     state: started
