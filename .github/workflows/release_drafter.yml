@@ -36,7 +36,7 @@ jobs:
         #   config-name: my-config.yml
         #   disable-autolabeler: true
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PROJECTS_SECRET }}
   changelog_draft:
     runs-on: ubuntu-latest
 
