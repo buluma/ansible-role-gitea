@@ -68,6 +68,8 @@
         - not gitea_app_ini.stat.exists
 
     - name: Root owned after installation
+      when:
+        - gitea_app_ini.stat.exists
       block:
         - name: /etc/gitea after installation
           ansible.builtin.file:
@@ -83,8 +85,6 @@
             owner: root
             group: git
             mode: "0640"
-      when:
-        - gitea_app_ini.stat.exists
 
 - name: Place service file
   ansible.builtin.copy:
