@@ -4,4 +4,4 @@
     that:
       - gitea_version is defined
       - gitea_version is string
-    quiet: yes
+    quiet: true

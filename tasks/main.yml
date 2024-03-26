@@ -3,7 +3,7 @@
 
 - name: Include assert.yml
   ansible.builtin.import_tasks: assert.yml
-  run_once: yes
+  run_once: true
   delegate_to: localhost
 
 - name: Install requirements
@@ -34,8 +34,8 @@
         comment: "Git Version Control"
         shell: /bin/bash
         home: /home/git
-        system: yes
-        password_lock: yes
+        system: true
+        password_lock: true
 
 - name: Create directories
   block:
@@ -103,4 +103,4 @@
   ansible.builtin.service:
     name: gitea
     state: started
-    enabled: yes
+    enabled: true

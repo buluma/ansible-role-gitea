@@ -3,4 +3,4 @@
 
 - name: Systemctl daemon-reload
   ansible.builtin.systemd:
-    daemon-reload: yes
+    daemon-reload: true
