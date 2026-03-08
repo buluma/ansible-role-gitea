@@ -19,9 +19,6 @@ galaxy_info:
     - name: Fedora
       versions:
         - all
-    - name: opensuse
-      versions:
-        - all
   galaxy_tags:
     - gitea
 dependencies: []
