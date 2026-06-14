@@ -8,7 +8,7 @@ gitea_go_arch_map:
   armv6l: "arm-6"
   armv5l: "arm-5"
 
-gitea_arch: "{{ gitea_go_arch_map[ansible_architecture] | default(ansible_architecture) }}"
+gitea_arch: "{{ gitea_go_arch_map[ansible_facts.architecture] | default(ansible_facts.architecture) }}"
 
 _gitea_dependencies:
   Debian:
@@ -24,4 +24,4 @@ _gitea_dependencies:
     - gpg2
     - xz
 
-gitea_dependencies: "{{ _gitea_dependencies[ansible_os_family] }}"
+gitea_dependencies: "{{ _gitea_dependencies[ansible_facts.os_family] }}"
