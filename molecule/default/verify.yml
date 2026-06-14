@@ -7,6 +7,7 @@
   tasks:
     - name: Run gitea --version
       ansible.builtin.command:
+      changed_when: false
         cmd: gitea --version
 
     - name: Check port 3000
