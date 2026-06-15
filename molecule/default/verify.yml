@@ -7,8 +7,8 @@
   tasks:
     - name: Run gitea --version
       ansible.builtin.command:
-      changed_when: false
         cmd: gitea --version
+      changed_when: false
 
     - name: Check port 3000
       ansible.builtin.wait_for:
